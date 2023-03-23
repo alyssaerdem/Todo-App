@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import List from "./components/List";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("If List component is rendered", () => {
+  const { getByText } = render(<List />);
+  expect(getByText("Todo List")).toBeInTheDocument();
 });
