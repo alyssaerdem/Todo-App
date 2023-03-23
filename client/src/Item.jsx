@@ -3,23 +3,39 @@ import { FiTrash, FiEdit } from "react-icons/fi";
 import { MdOutlineDone } from "react-icons/md";
 import { useState } from "react";
 
-const Item = () => {
-  const [title, setTitle] = useState("Print Homework");
-  const [date, setDate] = useState("2023-03-24");
+const Item = ({ t, d, i, handleDelete }) => {
+  const [title, setTitle] = useState(t);
+  const [date, setDate] = useState(d);
   const [edit, setEdit] = useState(false);
+  const index = i;
 
   const handleEdit = () => {
-    console.log("here");
     setEdit(!edit);
-    console.log(edit);
+  };
+
+  const handleCheck = (index) => {
+    handleDelete(index);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setTitle(event.target[0].value);
+    setDate(event.target[1].value);
+    handleEdit();
   };
 
   return (
     <div>
+      {/* Display item */}
       <div style={{ display: edit ? "none" : "initial" }}>
         <div className={styles.container}>
           <div className={styles.check}>
-            <MdOutlineDone />
+            <MdOutlineDone
+              className={styles.checkIcon}
+              onClick={() => {
+                handleCheck(index);
+              }}
+            />
           </div>
           <div className={styles.card}>
             <div className={styles.title}>{title}</div>
@@ -27,7 +43,10 @@ const Item = () => {
               <div className={styles.date}>{date}</div>
               <div className={styles.actions}>
                 <span>
-                  <FiTrash className={styles.delete} />
+                  <FiTrash
+                    className={styles.delete}
+                    onClick={() => handleDelete(index)}
+                  />
                 </span>
                 <span>
                   <FiEdit
@@ -41,38 +60,42 @@ const Item = () => {
         </div>
       </div>
 
+      {/* Display item in editing mode */}
       <div style={{ display: edit ? "initial" : "none" }}>
         <div className={styles.container}>
           <div className={styles.check}>
             <FiEdit />
           </div>
           <div className={styles.card}>
-            <div className={styles.title}>
-              <input
-                type="text"
-                name="Title"
-                defaultValue={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div className={styles.bottom_container}>
-              <div className={styles.date}>
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <div className={styles.title}>
                 <input
-                  type="date"
-                  name="Date"
-                  defaultValue={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  type="text"
+                  name="Title"
+                  defaultValue={title}
+                  required={true}
                 />
               </div>
-              <div className={styles.actions}>
-                <span>
-                  <button onClick={handleEdit}> Cancel </button>
-                </span>
-                <span>
-                  <button onClick={handleEdit}> Save </button>
-                </span>
+              <div className={styles.bottom_container}>
+                <div className={styles.date}>
+                  <input
+                    type="date"
+                    name="Date"
+                    defaultValue={date}
+                    required={true}
+                  />
+                </div>
+                <div className={styles.actions}>
+                  <span>
+                    <input
+                      type="submit"
+                      value="Save"
+                      className={styles.saveBtn}
+                    />
+                  </span>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

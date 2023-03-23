@@ -3,9 +3,10 @@
   height: max-content;
   border-radius: 5px;
   display: flex;
-  background-color: rgba(242, 242, 242, 0.2);
+  background-color: var(--item-color);
   box-shadow: 0 4px 8px 0 rgba(22, 21, 21, 0.047);
   transition: 0.3s;
+  padding: 0 0.5em 0.5em 0;
 }
 
 .container:hover {
@@ -50,10 +51,12 @@
 
 .edit:hover {
   color: rgb(113, 113, 113);
+  transform: scale(1.5);
 }
 
 .delete:hover {
   color: rgb(239, 79, 79);
+  transform: scale(1.5);
 }
 
 .check {
@@ -68,16 +71,22 @@
   height: 4em;
 }
 
-.check > svg:hover {
+.checkIcon:hover {
   color: rgba(18, 216, 114, 0.879);
+  transform: scale(1.2);
 }
 
-span > button {
-  background-color: #fff;
+span > input {
   border-radius: 5px;
-  border-color: rgba(242, 242, 242, 0.2);
+  background-color: var(--button-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0.5em;
+  border: blanchedalmond;
+  padding: 0.5em;
 }
 
-span > button:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.saveBtn {
+  margin-top: 0.9em;
 }
