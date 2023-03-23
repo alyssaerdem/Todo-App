@@ -56,6 +56,7 @@ const List = () => {
               name="Title"
               placeholder="New item"
               required={true}
+              maxLength="30"
             />
           </label>
           <input type="date" name="date" required={true} />

@@ -74,6 +74,7 @@ const Item = ({ t, d, i, handleDelete }) => {
                   name="Title"
                   defaultValue={title}
                   required={true}
+                  maxlength="30"
                 />
               </div>
               <div className={styles.bottom_container}>
