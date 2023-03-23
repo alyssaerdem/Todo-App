@@ -1,4 +1,4 @@
-import styles from "./Item.module.css";
+import styles from "../styles/Item.module.css";
 import { FiTrash, FiEdit } from "react-icons/fi";
 import { MdOutlineDone } from "react-icons/md";
 import { useState } from "react";

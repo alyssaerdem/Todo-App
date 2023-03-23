@@ -1,5 +1,5 @@
 import Item from "./Item";
-import styles from "./List.module.css";
+import styles from "../styles/List.module.css";
 import { useState } from "react";
 
 const List = () => {

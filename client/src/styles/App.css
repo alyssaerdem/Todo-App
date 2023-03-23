@@ -2,7 +2,7 @@
   text-align: center;
   height: 100vh;
   width: 100vw;
-  background-image: url("../public/wave.svg");
+  background-image: url("../../public/wave.svg");
   background-repeat: no-repeat;
   background-position: 20% 100%;
   background-size: contain;
