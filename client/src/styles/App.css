@@ -17,7 +17,7 @@ input {
   border-radius: 2px;
   border: none;
   color: #001f44;
-  padding: 0.75em;
+  padding: 10px;
 }
 
 input:hover {

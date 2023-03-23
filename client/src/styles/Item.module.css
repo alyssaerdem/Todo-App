@@ -72,9 +72,14 @@
   height: 4em;
 }
 
-.checkIcon:hover {
+.not_checked:hover,
+.checked:hover {
   color: rgba(18, 216, 114, 0.879);
   transform: scale(1.2);
+}
+
+.checked {
+  color: rgba(18, 216, 114, 0.879);
 }
 
 span > input {

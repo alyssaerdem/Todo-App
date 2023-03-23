@@ -7,14 +7,15 @@ const Item = ({ t, d, i, handleDelete }) => {
   const [title, setTitle] = useState(t);
   const [date, setDate] = useState(d);
   const [edit, setEdit] = useState(false);
+  const [checked, setChecked] = useState(false);
   const index = i;
 
   const handleEdit = () => {
     setEdit(!edit);
   };
 
-  const handleCheck = (index) => {
-    handleDelete(index);
+  const handleCheck = () => {
+    setChecked(!checked);
   };
 
   const handleSubmit = (event) => {
@@ -31,9 +32,9 @@ const Item = ({ t, d, i, handleDelete }) => {
         <div className={styles.container}>
           <div className={styles.check}>
             <MdOutlineDone
-              className={styles.checkIcon}
+              className={checked ? styles.checked : styles.not_checked}
               onClick={() => {
-                handleCheck(index);
+                handleCheck();
               }}
             />
           </div>
@@ -74,7 +75,7 @@ const Item = ({ t, d, i, handleDelete }) => {
                   name="Title"
                   defaultValue={title}
                   required={true}
-                  maxlength="30"
+                  maxLength="30"
                 />
               </div>
               <div className={styles.bottom_container}>
